@@ -1,0 +1,25 @@
+<script src="Clock.js"></script>
+<script src="Extended-clock.js"></script>
+<script>
+//   let clock = new Clock({
+//     template: 'h:m:s'
+//   });
+//   clock.start();
+
+
+
+    let lowResolutionClock = new ExtendedClock({
+      template: 'h:m:s',
+      precision: 10000
+    });
+
+    highResolutionClock = new ExtendedClock({
+        template: 'm:s',
+        precision: 2000,
+    });
+
+    highResolutionClock.start();
+
+    lowResolutionClock.start();
+  
+</script>
