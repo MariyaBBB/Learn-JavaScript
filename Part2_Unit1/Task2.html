@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <form name="search">
+    <label>Search the site:
+      <input type="text" name="search">
+    </label>
+    <input type="submit" value="Search!">
+  </form>
+
+  <hr>
+
+  <form name="search-person">
+    Search the visitors:
+    <table id="age-table">
+      <tr>
+        <td>Age:</td>
+        <td id="age-list">
+          <label>
+            <input type="radio" name="age" value="young">less than 18</label>
+          <label>
+            <input type="radio" name="age" value="mature">18-50</label>
+          <label>
+            <input type="radio" name="age" value="senior">more than 50</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Additionally:</td>
+        <td>
+          <input type="text" name="info[0]">
+          <input type="text" name="info[1]">
+          <input type="text" name="info[2]">
+        </td>
+      </tr>
+
+    </table>
+
+    <input type="submit" value="Search!">
+
+    <script> 
+    let table = document.getElementById('age-table');
+
+    let label = table.getElementsByTagName('label');
+
+    let td = table.getElementsByTagName('td')[0];
+
+    let form = document.getElementsByName('search');
+
+    let firstInput = form[0].getElementsByTagName('input')[0];
+    let inputs = form[0].getElementsByTagName('input');
+    inputs[inputs.length - 1];
+
+    let radios = document.querySelectorAll('input[type = "radio"]');
+    console.log(radios);
+    </script>
+  </form>
+</body>
+</html>
