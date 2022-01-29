@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <ul id = "ul">  
+
+    </ul>
+    <script>
+        do {
+            let text = prompt("Введите значение", '');
+            if(!text) break;
+            let li = document.createElement('li');
+            li.textContent = text;
+            document.body.querySelector('ul').append(li);
+
+        } while(true)
+    </script>
+</body>
+
+</html>

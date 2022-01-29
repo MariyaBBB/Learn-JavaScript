@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <table id="table">
+        <tr>
+            <th id='name'>Имя</th>
+            <th>Фамилия</th>
+            <th>Возраст</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Smith</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Pete</td>
+            <td>Brown</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>Ann</td>
+            <td>Lee</td>
+            <td>5</td>
+        </tr>
+    </table>
+
+    <script>
+
+        function sortByName() {
+            let table = document.getElementById("table");
+            let rows = table.querySelectorAll('tr');
+
+            let rowsSort = Array.from(rows);
+            
+            rowsSort.splice(0,1);
+            
+            rowsSort.sort((a, b) => {
+
+                let tdA = a.querySelector('td').textContent;
+                let tdB = b.querySelector('td').textContent;
+
+                if(tdA > tdB) {
+                    b.after(a);
+                    return -1;
+                }
+
+                if(tdB > tdA) {
+                    a.after(b);
+                    return 1;
+                }
+
+                return 0;
+            });
+        }
+
+        sortByName();
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

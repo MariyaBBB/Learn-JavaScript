@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        table {
+            border-collapse: collapse;
+            float: left;
+            height: 200px;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #E6E6E6;
+        }
+    </style>
+    <div id='cal'>
+
+    </div>
+
+
+    <script>
+        function createCalendar(elem, year, month) {
+
+            let days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            let table = document.createElement('table');
+            elem.append(table);
+
+
+            let trHead = document.createElement('tr');
+            table.append(trHead);
+
+            for (let i = 0; i < days.length; i++) {
+                let th = document.createElement('th');
+                trHead.append(th);
+
+                th.textContent = days[i];
+            }
+
+            let firstDayOfMonth = new Date(year, month - 1, 1);
+            let dayOfWeek = firstDayOfMonth.getDay();
+            dayOfWeek = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+
+            function getLastDayOfMonth(year, month) {
+                let date = new Date(year, month + 1, 0);
+                return date.getDate();
+            }
+
+            let lastDayOfMonth = getLastDayOfMonth(year, month - 1);
+
+
+            let dayOfMonth = +firstDayOfMonth.getDate();
+
+            for (let w = 0; w < 6; w++) {
+                if(dayOfMonth > lastDayOfMonth) break;
+                let trWeek = document.createElement('tr');
+                table.append(trWeek);
+                for (let d = 0; d < days.length; d++) {
+                    let td = document.createElement('td');
+                    trWeek.append(td);
+
+                    if (d == dayOfWeek) {
+                        td.textContent = dayOfMonth;
+                        dayOfWeek++;
+                        dayOfMonth++;
+                        continue;
+                    }
+
+                    if (w > 0 && dayOfMonth <= lastDayOfMonth) {
+                        td.textContent = dayOfMonth;
+                        dayOfMonth++;
+                    }
+                }
+
+            }
+
+        }
+
+        let cal = document.getElementById('cal');
+        for (let i = 1; i <= 12; i++) {
+            createCalendar(cal, 2022, i);
+        }
+    </script>
+</body>
+
+</html>
