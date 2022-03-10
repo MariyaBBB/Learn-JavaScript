@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Документ</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://js.cx/test/libs.js"></script>
+
+</head>
+
+<body>
+
+  <div id="elem" class="clock">
+    <span class="hours">12</span> :
+    <span class="minutes">30</span> :
+    <span class="seconds">00</span>
+  </div>
+
+  <div id="tooltip" hidden>Подсказка</div>
+
+  <script>
+    let elem = document.getElementById('elem');
+    let IsMouseIn;
+
+    elem.onmouseenter = function (event) {
+      IsMouseIn = true;
+     
+      setTimeout(() => {
+        if(IsMouseIn) {
+          tooltip.hidden = false;
+        }
+      }, 500);
+    };
+
+    elem.onmouseleave = function (event) {
+      tooltip.hidden = true;
+      IsMouseIn = false;
+    };
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+      .tree span:hover {
+        font-weight: bold;
+        cursor: pointer;
+
+      }
+
+     
+
+
+
+  </style>
+</head>
+<body>
+
+  <ul class="tree" id="tree">
+    <li><span class='menu'>Животные </span>
+      <ul>
+        <li> <span class='menu'>Млекопитающие </span>
+          <ul>
+            <li><span>Коровы </span></li>
+            <li><span>Ослы </span></li>
+            <li><span>Собаки </span></li>
+            <li><span>Тигры </span></li>
+          </ul>
+        </li>
+        <li> <span class='menu'>Другие </span>
+          <ul>
+            <li><span>Змеи </span></li>
+            <li><span>Птицы </span></li>
+            <li><span>Ящерицы </span></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class='menu'>Рыбы </span>
+      <ul>
+        <li><span class='menu'>Аквариумные </span>
+          <ul>
+            <li><span>Гуппи </span></li>
+            <li><span>Скалярии </span></li>
+          </ul>
+        </li>
+        <li><span class='menu'>Морские </span>
+          <ul>
+            <li><span>Морская форель </span></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <script>
+    let tree = document.getElementById('tree');
+
+    tree.onclick = function(event) {
+        if(event.target.className != 'menu') return;
+
+        let list = event.target.parentNode.querySelector('ul');
+
+        list.hidden = !list.hidden;
+    }
+  </script>
+</body>
+</html>

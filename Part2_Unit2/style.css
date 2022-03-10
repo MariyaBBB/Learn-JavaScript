@@ -1,0 +1,113 @@
+.arrow {
+    padding: 0;
+    background: #ddd;
+    border-radius: 15px;
+    border: 1px solid gray;
+    font-size: 24px;
+    line-height: 24px;
+    color: #444;
+    position: absolute;
+    z-index: 1;
+    top: 53px;
+  }
+  
+  .arrow:focus {
+    outline: none;
+  }
+  
+  .arrow:hover {
+    background: #ccc;
+    cursor: pointer;
+  }
+
+ .arrow-left {
+    left: 5px;
+ }
+
+ .arrow-right {
+    right: 5px;
+ }
+  ul {
+    height: 130px;
+    width: 9999px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    transition: all 1s;
+  }
+  
+  .container img {
+    width: 130px;
+    height: 130px;
+    display: block; /* убираем пустое место вокруг картинок */
+
+  }
+  
+  ul li {
+    display: inline-block; /* убираем пустое место между элементами списка */
+    
+  }
+  .container {
+    position: relative;
+    height: 130px;
+    width: 398px;
+    overflow: hidden;
+    background: #ddd;
+    border-radius: 15px;
+    border: 1px solid gray;
+    margin: 0;
+    padding: 10px 40px
+  }
+  
+  .gallery {
+    width: 390px;
+    overflow: hidden;
+  }
+  .hours {
+    color: red;
+  }
+  
+  .minutes {
+    color: green;
+  }
+  
+  .seconds {
+    color: blue;
+  }
+  
+  .clock {
+    border: 1px dashed black;
+    padding: 5px;
+    display: inline-block;
+    background: yellow;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  #tooltip {
+    position: absolute;
+    background: #eee;
+    border: 1px brown solid;
+    padding: 3px;
+  }
+  .slider {
+    border-radius: 5px;
+    background: #E0E0E0;
+    background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+    width: 310px;
+    height: 15px;
+    margin: 5px;
+  }
+  
+  .thumb {
+    width: 10px;
+    height: 25px;
+    border-radius: 3px;
+    position: relative;
+    left: 10px;
+    top: -5px;
+    background: blue;
+    cursor: pointer;
+  }
