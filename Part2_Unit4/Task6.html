@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button id='show'>Кликните, чтобы увидеть форму</button>
+  <div id="prompt-form-container">
+    <form id="prompt-form">
+      <div id="prompt-message">Введите что-нибудь...
+        <br>Пожалуйста..</div>
+      <input name="text" type="text">
+      <input type="submit" value="Ok">
+      <input type="button" name="cancel" value="Отмена">
+    </form>
+  </div>
+
+
+</body>
+
+<script>
+    let formContainer = document.getElementById('prompt-form-container');
+    formContainer.hidden = true;
+    let show = document.getElementById('show');
+    let promptMessage = document.getElementById('prompt-message');
+
+function showPrompt(html, callback) {
+    coverModal();
+    promptMessage.innerHTML = html;
+    formContainer.hidden = false;
+    let form = document.getElementById('prompt-form');
+    form.elements.text.focus();
+
+    form.onsubmit = function() {
+        if(!form.elements.text.value) return;
+        if(form.elements.text.value == '') callback(null);
+        callback(form.elements.text.value);
+    }
+
+    form.elements.cancel.onclick = function() {
+        callback(null);
+        formContainer.hidden = true;
+        formContainer.hidden = true;
+    }
+
+    form.onkeydown= function(event)  {
+        if(event.code == 'Escape') {
+            callback(null);
+            formContainer.hidden = true;
+            removeModal();
+        }
+    }
+}
+
+function coverModal() {
+    let modal = document.createElement('div');
+    modal.id = 'cover-div';
+    modal.style.overflow = 'hidden';
+    document.body.append(modal);
+}
+    
+function removeModal() {
+    document.getElementById('cover-div').remove();
+    document.body.style.overflowY = '';
+}
+    show.onclick = function() {
+        showPrompt("Введите что-нибудь<br>...умное :)", function(value) {
+  alert('Вы ввели: ' + value);
+});
+    }
+
+</script>
+</html>
